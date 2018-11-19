@@ -1,0 +1,257 @@
+
+@import url('https://fonts.googleapis.com/css?family=Arbutus|Kumar+One+Outline');
+
+html {
+    line-height: 1;
+}
+
+body{
+    background-color: green;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Kumar One Outline';
+    font-size: 40px;
+    padding: 20px;
+    display: flex;
+    padding: 10px;
+    padding-top: 20px;
+    background-color: whitesmoke;
+    border-radius: 5% / 10% ;
+    user-select: none;
+    text-shadow: 2px 2px 1px rgba(0,0,0,0.15);
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+
+.red {
+    color: rgb(199, 11, 11);
+}
+
+.Card {
+    height: 150px;
+    width: 100px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    font-family: Futura;
+    font-size: 18px;
+    position: absolute;
+    border-radius: 8% / 5%;
+    transition: transform 0.5s ease-out;
+    border: 1px solid gray;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.card-suit {
+    margin: 6px;
+}
+
+#deck{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.red-card{
+    color: rgb(199, 11, 11);
+}
+
+.face-down {
+    border: 10px solid rgb(56, 113, 236);
+    width: 82px;
+    height: 134px;
+    margin-top: 8px;
+    background:
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    rgb(56, 113, 236);
+    background-size: 15px 30px
+}
+
+.face-down-discard {
+    border: 10px solid rgb(124, 124, 124);
+    width: 82px;
+    height: 134px;
+    margin-top: 8px;
+    background:
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    rgb(121, 121, 121);
+    background-size: 15px 30px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.face-down-child {
+    border-radius: 8% / 5%;
+    position: absolute;
+    border: 10px solid rgb(56, 113, 236);
+    transform: translateY(-10px);
+    width: 82px;
+    height: 134px;
+    margin-top: 8px;
+    background:
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    rgb(56, 113, 236);
+    background-size: 15px 30px;
+    transition: opacity 0.8s ease;
+}
+
+.user-question{
+    position: fixed;
+    width: 300px;
+    height: 100px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(251, 207, 83);
+    padding: 10px;
+    transform: translateX(-40px);
+    border-radius: 5% / 8%;
+    border: 10px double rgb(201, 88, 12);
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.choice-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    font-family: 'Kumar One Outline';
+    font-size: 25px;
+    padding: 10px;
+    padding-top: 15px;
+    border-radius: 8% / 5%;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.choice-button:hover{
+    cursor: pointer;
+}
+
+#hit {
+    background-color: rgb(255, 169, 88);
+}
+
+#stand {
+    background-color: rgb(8, 194, 8);
+}
+
+#cash {
+    position: absolute;
+    font-family: 'Kumar One Outline';
+    color: yellow;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+    transform: translate(300px,-100px);
+    background: black;
+    padding: 10px;
+    padding-bottom: 0;
+    border-radius: 8% / 5%;
+}
+
+#current-bet{
+    font-size: 20px;
+    display: flex;
+    margin-bottom: -20px;
+}
+
+#bet-title {
+    font-family: 'Kumar One Outline';
+    font-size: 40px;
+}
+
+#arrows{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.arrow{
+    background-color: black;
+    width: 45px;
+    height: 45px;
+}
+
+.arrow:hover{
+    cursor: pointer;
+}
+
+#up-arrow{
+    background:
+    linear-gradient(115deg, transparent 75%, rgb(0, 0, 0) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgb(0, 0, 0) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    rgb(251, 207, 83);
+    background-size: 45px 90px;
+    background-position: bottom;
+    transform: rotate(180deg);
+    border-top: 2px solid black;
+    border-radius: 0% 0% 10% 10% / 0% 0% 5% 5%;
+}
+
+#down-arrow{
+    background:
+    linear-gradient(115deg, transparent 75%, rgb(0, 0, 0) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgb(0, 0, 0) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    rgb(251, 207, 83);
+    background-size: 45px 90px;
+    background-position: bottom;
+    border-radius: 0% 0% 10% 10% / 0% 0% 5% 5%;
+}
+
+#bet-done{
+    position: absolute;
+    transform: translateY(105px);
+    display: flex;
+    opacity: 1;
+    width: 65px;
+    height: 30px;
+    font-family: Futura,sans-serif;
+    font-size: 30px;
+}
+
+#bet-done:hover{
+    cursor: pointer;
+}
+
+.end-message{
+    transform: translateY(150px);
+    font-family: Futura;
+    font-size: 30px;
+    z-index: 20000;
+}
+
+#player-blackjack{
+    font-family: 'Kumar One Outline';
+}
