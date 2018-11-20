@@ -48,6 +48,20 @@ function createDeck(){
     return deck
 }
 
+class Deck extends Component {
+
+    render() {
+        return (
+            <div id="deck">
+                {createDeck().map(cardProps => {
+                    return <Card name={cardProps.name} suit={cardProps.suit} weight={cardProps.weight} key={cardProps.key} cardKey={cardProps.key}/>
+                })}
+                <div className="face-down Card"></div>
+            </div>
+        )
+    }
+}
+
 let playerBet = 5
 
 let playerCash = 100
@@ -84,10 +98,7 @@ export class Home extends Component {
                     <span id="current-cash">{'$' + playerCash}</span>
                 </div>
                 <div id="deck">
-                    {createDeck().map(cardProps => {
-                        return <Card name={cardProps.name} suit={cardProps.suit} weight={cardProps.weight} key={cardProps.key} cardKey={cardProps.key}/>
-                    })}
-                    <div className="face-down Card"></div>
+                    <Deck/>
                 </div>
             </div>
         )
@@ -120,19 +131,19 @@ function dealToDealer(faceDown){
         cardKey = 0
         blinkMessage('shuffling')
         const deck = document.getElementById('deck')
+        deck.innerHTML = ''
         createDeck().map(cardProps => {
-            const newCard = `
-            <div id={"Card" + this.props.cardKey} data-weight={this.props.weight} className={"Card " + (suitSymbol === '♣' || suitSymbol === '♠' ? 'black-card':'red-card')}>
-                <div className="card-top">
-                    <div className="card-suit">{suitSymbol}</div>
-                    <div className="card-name">{cardName}</div>
-                </div>
-                <div className="card-bottom">
-                    <div className="card-name">{cardName}</div>
-                    <div className="card-suit">{suitSymbol}</div>
-                </div>
-            </div>
-            `
+            const newCard = React.createElement(Card,
+                {
+                    name: cardProps.name,
+                    suit: cardProps.suit,
+                    weight: cardProps.weight,
+                    key: cardProps.key,
+                    cardKey: cardProps.key,
+                }
+            )
+            deck.appendChild(newCard)
+            cardKey++
         })
     }
     const selectedCard = randomCard()
@@ -189,6 +200,7 @@ function dealToPlayer(){
         cardKey = 0
         blinkMessage('shuffling')
         const deck = document.getElementById('deck')
+        deck.innerHTML = ''
         createDeck().map(cardProps => {
             const newCard = React.createElement(Card,
                 {
@@ -199,8 +211,8 @@ function dealToPlayer(){
                     cardKey: cardProps.key,
                 }
             )
-            const node = React.findDOMNode(newCard)
-            deck.appendChild(node)
+            deck.appendChild(newCard)
+            cardKey++
         })
     }
     if(playerZ <= dealerZ){
