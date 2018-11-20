@@ -1,5 +1,6 @@
 # ReactJack
 ## Play Blackjack in a React app
+<h3><a href="https://react-jack.herokuapp.com/"> Live Site </a></h3>
 
 <a href="https://www.bicyclecards.com/how-to-play/blackjack/">Rules of Blackjack</a>
 
@@ -8,6 +9,7 @@
     - Dealer busts
     - Player busts
     - Player or dealer wins when no busts happened
+    - Draw
     - Player Blackjack
     - Dealer Blackjack
     - Player busts
